@@ -3,7 +3,10 @@ package com.library;
 
 public class Library {
     private static Book[] book = new Book[10];
+    private static Member[] member = new Member[10];
     private static int bookNumber = 1;
+    private static int membercount = 0;
+
     static void main(){
         booksStarterPack();
 
@@ -12,6 +15,10 @@ public class Library {
         IO.println(book[2]);
         IO.println(book[3]);
         IO.println(book[4]);
+        addMember();
+        addMember();
+        IO.println(member[0].getMemberName() + " " + member[0].getMemberpassword() + " " +member[0].getNumberOfloans());
+        IO.println(member[1].getMemberName() + " " + member[1].getMemberpassword() + " " +member[1].getNumberOfloans());
 
     }
     private static int getBookNumber(){
@@ -24,6 +31,10 @@ public class Library {
         book[2] = new Book(getBookNumber(),"En varg liggger begraven", "Pelle och Vargen");
         book[3] = new Book(getBookNumber(),"Hur du mår bättre utan att må dåligt", "Inga Beskymmer");
         book[4] = new Book(getBookNumber(),"Hur du gör en Copy Konstruktor och varför", "Ulf Kristersson");
+    }
+    private static Member addMember(){
+      return member[membercount++] = new Member();
+
     }
 }
 
