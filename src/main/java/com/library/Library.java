@@ -9,16 +9,19 @@ public class Library {
 
     static void main(){
         booksStarterPack();
-
+        addBook();
+        addBook();
         IO.println(book[0]);
         IO.println(book[1]);
         IO.println(book[2]);
         IO.println(book[3]);
         IO.println(book[4]);
-        addMember();
-        addMember();
-        IO.println(member[0].getMemberName() + " " + member[0].getMemberpassword() + " " +member[0].getNumberOfloans());
-        IO.println(member[1].getMemberName() + " " + member[1].getMemberpassword() + " " +member[1].getNumberOfloans());
+        IO.println(book[5]);
+        IO.println(book[6]);
+//        addMember();
+//        addMember();
+//        IO.println(member[0].getMemberName() + " " + member[0].getMemberpassword() + " " +member[0].getNumberOfloans());
+//        IO.println(member[1].getMemberName() + " " + member[1].getMemberpassword() + " " +member[1].getNumberOfloans());
 
     }
     private static int getBookNumber(){
@@ -35,6 +38,11 @@ public class Library {
     private static Member addMember(){
       return member[membercount++] = new Member();
 
+    }
+    private static Book addBook(){
+        String name = IO.readln("Enter the name of the book you want to add: ");
+        String author = IO.readln("Enter the author of the book: ");
+        return book[bookNumber-1] = new Book(getBookNumber(), name, author);
     }
 }
 

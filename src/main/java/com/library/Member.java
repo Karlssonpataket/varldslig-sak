@@ -6,7 +6,7 @@ public class Member {
     private int numberOfloans;
 
     public Member(){
-        this.memberName = IO.readln("Whats yoor name?: ");
+        this.memberName = IO.readln("Whats your name?: ");
         this.memberpassword = Integer.parseInt(IO.readln("Please enter a password for your library membership: "));
         this.numberOfloans = 0;
     }
