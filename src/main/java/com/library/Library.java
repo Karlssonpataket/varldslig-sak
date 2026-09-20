@@ -1,16 +1,26 @@
 package com.library;
 
 
+import java.util.Arrays;
+
 public class Library {
     private static Book[] book = new Book[10];
-    private static Member[] member = new Member[10];
+    public static Member[] member = new Member[1];
     private static int bookNumber = 1;
-    private static int membercount = 0;
+    public static int membercount = 0;
 
     static void main(){
         booksStarterPack();
-        addBook();
-        addBook();
+
+        addMember();
+        addMember();
+        addMember();
+        addMember();
+        addMember();
+        addMember();
+        addMember();
+
+
         IO.println(book[0]);
         IO.println(book[1]);
         IO.println(book[2]);
@@ -18,6 +28,9 @@ public class Library {
         IO.println(book[4]);
         IO.println(book[5]);
         IO.println(book[6]);
+        IO.println(book[7]);
+
+
 //        addMember();
 //        addMember();
 //        IO.println(member[0].getMemberName() + " " + member[0].getMemberpassword() + " " +member[0].getNumberOfloans());
@@ -40,6 +53,8 @@ public class Library {
 
     }
     private static Book addBook(){
+        if (bookNumber-1 >= book.length)
+            book = Arrays.copyOf(book, book.length * 2);
         String name = IO.readln("Enter the name of the book you want to add: ");
         String author = IO.readln("Enter the author of the book: ");
         return book[bookNumber-1] = new Book(getBookNumber(), name, author);
