@@ -5,7 +5,8 @@ import java.util.Arrays;
 
 public class Library {
     private static Book[] book = new Book[10];
-    public static Member[] member = new Member[1];
+    public static Member[] member = new Member[10];
+    private static Borrowedbooks[] borrowedBooks = new Borrowedbooks[10];
     private static int bookNumber = 1;
     public static int membercount = 0;
 
@@ -14,22 +15,8 @@ public class Library {
 
         addMember();
         addMember();
-        addMember();
-        addMember();
-        addMember();
-        addMember();
-        addMember();
 
-
-        IO.println(book[0]);
-        IO.println(book[1]);
-        IO.println(book[2]);
-        IO.println(book[3]);
-        IO.println(book[4]);
-        IO.println(book[5]);
-        IO.println(book[6]);
-        IO.println(book[7]);
-
+        printMembers();
 
 //        addMember();
 //        addMember();
@@ -59,6 +46,17 @@ public class Library {
         String author = IO.readln("Enter the author of the book: ");
         return book[bookNumber-1] = new Book(getBookNumber(), name, author);
     }
+    private static void printMembers(){
+        IO.println("-----------------------------------------------");
+        IO.println("-Pincode-\t-Nr. of loans- \t -Member name-");
+        for (int i = 0; i < membercount; i++) {
+            IO.println("  " + member[i].getMemberpassword() + "\t\t\t  " + member[i].getNumberOfloans()
+                    + "\t\t\t " + String.format("%.15s",member[i].getMemberName()));
+        }
+        IO.println("-----------------------------------------------");
+        }
+
+
 }
 
 
