@@ -11,19 +11,37 @@ public class Library {
     public static int membercount = 0;
 
     static void main(){
-        booksStarterPack();
 
         addMember();
-        addMember();
 
+
+
+        IO.println(logIn());
+
+//        IO.println(member[x].getMemberName());
+
+        IO.println(membercount);
         printMembers();
 
-//        addMember();
-//        addMember();
-//        IO.println(member[0].getMemberName() + " " + member[0].getMemberpassword() + " " +member[0].getNumberOfloans());
-//        IO.println(member[1].getMemberName() + " " + member[1].getMemberpassword() + " " +member[1].getNumberOfloans());
 
     }
+
+    private static boolean logIn() {
+        String userName = IO.readln("Enter your  username");
+        String pinCode = (IO.readln("enter your pincode"));
+        int intex = 0;
+        for (int i = 0; i < membercount; i++) {
+            if ((pinCode.equals(member[intex].getPinCode()) && userName.equals(member[intex].getMemberName())))
+                return true;
+
+            else intex++;
+
+        if (membercount == intex)
+                IO.println("Wrong Username or pincode please try again");
+        }
+        return false;
+    }
+
     private static int getBookNumber(){
         return bookNumber++;
     }
@@ -45,12 +63,13 @@ public class Library {
         String name = IO.readln("Enter the name of the book you want to add: ");
         String author = IO.readln("Enter the author of the book: ");
         return book[bookNumber-1] = new Book(getBookNumber(), name, author);
+
     }
     private static void printMembers(){
         IO.println("-----------------------------------------------");
         IO.println("-Pincode-\t-Nr. of loans- \t -Member name-");
         for (int i = 0; i < membercount; i++) {
-            IO.println("  " + member[i].getMemberpassword() + "\t\t\t  " + member[i].getNumberOfloans()
+            IO.println("  " + member[i].getPinCode() + "\t\t\t  " + member[i].getNumberOfloans()
                     + "\t\t\t " + String.format("%.15s",member[i].getMemberName()));
         }
         IO.println("-----------------------------------------------");
