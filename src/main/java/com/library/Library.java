@@ -11,8 +11,14 @@ public class Library {
     public static int membercount = 0;
 
     static void main(){
-
+        booksStarterPack();
+        addBook();
         addMember();
+        IO.println(book[4]);
+        IO.println(book[5]);
+        borrowedBooks[3].setMember(member[0]);
+        IO.println(borrowedBooks[3].getmember() + " " + borrowedBooks[3].getBook());
+        IO.println(borrowedBooks[5].getmember() + " " + borrowedBooks[5].getBook());
 
 
 
@@ -52,17 +58,23 @@ public class Library {
         book[2] = new Book(getBookNumber(),"En varg liggger begraven", "Pelle och Vargen");
         book[3] = new Book(getBookNumber(),"Hur du mår bättre utan att må dåligt", "Inga Beskymmer");
         book[4] = new Book(getBookNumber(),"Hur du gör en Copy Konstruktor och varför", "Ulf Kristersson");
+        for (int i = 0; i < 5; i++) {
+            borrowedBooks[i] = new Borrowedbooks(book[i]);
+        }
+
     }
     private static Member addMember(){
       return member[membercount++] = new Member();
 
     }
-    private static Book addBook(){
+    private static void addBook(){
         if (bookNumber-1 >= book.length)
             book = Arrays.copyOf(book, book.length * 2);
         String name = IO.readln("Enter the name of the book you want to add: ");
         String author = IO.readln("Enter the author of the book: ");
-        return book[bookNumber-1] = new Book(getBookNumber(), name, author);
+        book[bookNumber-1] = new Book(getBookNumber(), name, author);
+        IO.println(bookNumber);
+        borrowedBooks[bookNumber -2] = new Borrowedbooks(book[bookNumber - 2]);
 
     }
     private static void printMembers(){
